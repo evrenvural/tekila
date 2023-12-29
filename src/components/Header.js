@@ -7,25 +7,27 @@ export function Header({ onShuffle }) {
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <div>
-      <label className="absolute left-2 top-4">evo gaming</label>
+      <div className="absolute left-4 top-4 text-2xl text-center text-gray-300">
+        <h1>evo</h1>
+        <p>gaming</p>
+      </div>
       <button
         onClick={onShuffle}
-        className="absolute right-14 top-2 bg-orange-500 rounded-full p-1 flex justify-center items-center"
+        className="absolute right-16 top-7 bg-orange-500 rounded-full p-1 flex justify-center items-center"
       >
         <ShuffleIcon className="w-8 h-8" color="white" />
       </button>
       <button
         onClick={open}
-        className="absolute right-2 top-2 bg-orange-500 rounded-full p-1 flex justify-center items-center"
+        className="absolute right-4 top-7 bg-orange-500 rounded-full p-1 flex justify-center items-center"
       >
         <InfoCircledIcon className="w-8 h-8" color="white" />
       </button>
       <Modal
         classNames={{
-          body: "bg-red-600",
-          content: "!bg-red-600",
-          root: "bg-red-600",
-          header: "bg-red-600",
+          header: "!bg-zinc-800",
+          body: "bg-zinc-800",
+          inner: "text-white",
         }}
         opened={opened}
         onClose={close}
@@ -33,7 +35,7 @@ export function Header({ onShuffle }) {
         centered
       >
         {rules.map((rule) => (
-          <h5 key={rule} className="mb-2">
+          <h5 key={rule} className="pt-2">
             * {rule}
           </h5>
         ))}
